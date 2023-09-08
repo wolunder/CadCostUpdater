@@ -32,12 +32,6 @@ public class FondCadCost implements ParserImpl {
     private static final String COST_SECOND_XPATH = "/html/body/div[1]/div[6]/div[4]/div/div[1]/section/div[2]" +
             "/div[2]/div[3]/div[2]/div[2]/div/div/table/tbody/tr[2]/td[2]/a";
 
-    private static volatile int indexProgress = 0;
-
-    public static int getIndexProgress() {
-        return indexProgress;
-    }
-
     @Override
     public List<CadNumber> getListCad(Set<String> cadNumSet, WebDriver driver) {
         driver.get(FOND_CAD_COST_URL);
@@ -98,10 +92,8 @@ public class FondCadCost implements ParserImpl {
             } catch (TimeoutException | NoSuchElementException | StaleElementReferenceException e) {
                 cad.setCost(0);
             } finally {
-                
                 driver.navigate().to(FOND_CAD_COST_URL);
                 cadNumberList.add(cad);
-                indexProgress++;
             }
         }
             driver.close();

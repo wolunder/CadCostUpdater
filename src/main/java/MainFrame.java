@@ -258,9 +258,7 @@ public class MainFrame extends JFrame {
 			WebDriver driver = new FirefoxDriver();
 			if (cadSet != null) {
 				if (fondRadioButton.isSelected()) {
-
 					progressBar1.setIndeterminate(true);
-					progressBar1.setValue(FondCadCost.getIndexProgress());
 					new Thread(new Runnable() {
 						@Override
 						public void run() {
